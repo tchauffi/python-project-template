@@ -86,7 +86,7 @@ For a simple local project:
 cookiecutter https://github.com/tchauffi/python-project-template \
   use_github_actions=n \
   use_docker=n \
-  create_tests=n
+  use_docker=n
 ```
 
 ### Data Science Project
