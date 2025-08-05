@@ -61,7 +61,6 @@ When you run the template, you'll be prompted for the following options:
 | `min_python_version` | Minimum Python version | "3.10" | Any version |
 | `use_github_actions` | Include GitHub Actions CI | "y" | y/n |
 | `use_pre_commit` | Include pre-commit hooks | "y" | y/n |
-| `use_ruff` | Include Ruff linter/formatter | "y" | y/n |
 | `use_poetry` | Use Poetry for dependency management | "y" | y/n |
 | `license` | Project license | "MIT" | MIT/Apache-2.0/GPL-3.0/BSD-3-Clause/None |
 | `create_tests` | Include test setup | "y" | y/n |
