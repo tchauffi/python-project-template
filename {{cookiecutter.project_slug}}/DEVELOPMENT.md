@@ -65,6 +65,31 @@ poetry run pre-commit run --all-files
 ```
 
 {% endif -%}
+{% if cookiecutter.include_notebooks == "y" -%}
+### Jupyter Notebooks
+
+This project includes Jupyter notebook support for data exploration and analysis.
+
+#### Setup Notebooks
+
+```bash
+# Install notebook kernel
+poetry run python -m ipykernel install --user --name {{ cookiecutter.package_name }} --display-name "{{ cookiecutter.project_name }}"
+
+# Start Jupyter Lab
+poetry run jupyter lab
+
+# Or start Jupyter Notebook
+poetry run jupyter notebook
+```
+
+#### Notebook Organization
+
+- Notebooks are located in the `notebooks/` directory
+- Use the project kernel for accessing your package
+- See `notebooks/README.md` for more details and best practices
+
+{% endif -%}
 ### Building and Running
 
 ```bash
@@ -89,6 +114,11 @@ Run `make help` to see all available commands.
 ├── tests/               # Test files
 │   ├── __init__.py
 │   └── test_main.py
+{% if cookiecutter.include_notebooks == "y" -%}
+├── notebooks/           # Jupyter notebooks
+│   ├── README.md        # Notebook documentation
+│   └── example_analysis.ipynb
+{% endif -%}
 ├── .github/             # GitHub Actions workflows
 ├── pyproject.toml       # Poetry configuration
 ├── README.md

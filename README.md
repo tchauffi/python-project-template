@@ -12,7 +12,8 @@ This template provides:
 - **🧪 pytest** for testing framework
 - **🔄 Pre-commit hooks** for code quality enforcement
 - **🚀 GitHub Actions** CI/CD workflows
-- **🐳 Docker** support (optional)
+- **� Jupyter notebooks** setup for data analysis and exploration (optional)
+- **�🐳 Docker** support (optional)
 - **📄 Multiple license options** (MIT, Apache-2.0, GPL-3.0, BSD-3-Clause, or None)
 - **📚 Comprehensive documentation** and development setup guides
 - **🛠️ Makefile** with common development tasks
@@ -75,6 +76,7 @@ When you run the template, you'll be prompted for the following options:
 | `use_pre_commit` | Include pre-commit hooks | "y" | y/n |
 | `license` | Project license | "MIT" | MIT/Apache-2.0/GPL-3.0/BSD-3-Clause/None |
 | `use_docker` | Include Docker configuration | "y" | y/n |
+| `include_notebooks` | Include Jupyter notebooks setup | "y" | y/n |
 
 ## Generated Project Structure
 
@@ -86,6 +88,9 @@ your-project/
 ├── tests/                 # Test directory
 │   ├── __init__.py
 │   └── test_main.py       # Example tests
+├── notebooks/             # Jupyter notebooks (optional)
+│   ├── README.md          # Notebook documentation
+│   └── example_analysis.ipynb # Example notebook
 ├── .github/               # GitHub Actions workflows
 │   └── workflows/
 │       └── ci.yml
@@ -213,6 +218,61 @@ cookiecutter . --no-input --extra-context '{"project_name": "Test Project", "use
 # Validate generated YAML files
 python -c "import yaml; yaml.safe_load(open('test-project/.github/workflows/ci.yml'))"
 ```
+
+## Template Updates with Cruft
+
+For keeping your generated projects up-to-date with template changes, we recommend using [Cruft](https://github.com/cruft/cruft).
+
+### Initial Project Creation with Cruft
+
+Instead of using cookiecutter directly, use cruft to create your project:
+
+```bash
+# Install cruft
+pip install cruft
+
+# Create a new project
+cruft create https://github.com/tchauffi/python-project-template
+```
+
+### Updating Existing Projects
+
+If you created your project with cruft, you can easily update it when the template changes:
+
+```bash
+# Check if updates are available
+cruft check
+
+# Update your project with template changes
+cruft update
+
+# Review and resolve any conflicts
+git status
+git add .
+git commit -m "Update from template"
+```
+
+### Converting Existing Projects
+
+If you have an existing project created with cookiecutter, you can convert it to use cruft:
+
+```bash
+cd your-existing-project
+
+# Link to the template (run from project root)
+cruft link https://github.com/tchauffi/python-project-template
+
+# This will create a .cruft.json file
+# Edit it to match your original cookiecutter values
+# Then you can use cruft update in the future
+```
+
+### Benefits of Using Cruft
+
+- **Automatic Updates**: Get template improvements automatically
+- **Conflict Resolution**: Smart merging of template changes
+- **Version Tracking**: Keep track of which template version you're using
+- **Selective Updates**: Choose which changes to apply
 
 ## GitHub Template Setup
 
