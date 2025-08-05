@@ -44,18 +44,6 @@ Or use it locally:
 cookiecutter /path/to/python-project-template
 ```
 
-### Using as GitHub Template
-
-This repository is configured as a GitHub template. You can also:
-
-1. Click the **"Use this template"** button on GitHub
-2. Create a new repository from this template
-3. Clone your new repository
-4. Run cookiecutter to generate the project structure:
-   ```bash
-   cookiecutter .
-   ```
-
 ### Template Options
 
 When you run the template, you'll be prompted for the following options:
