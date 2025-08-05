@@ -34,6 +34,9 @@ def main():
     if "{{ cookiecutter.use_docker }}" == "n":
         remove_file_if_exists("Dockerfile")
     
+    if "{{ cookiecutter.include_notebooks }}" == "n":
+        remove_dir_if_exists("notebooks")
+    
     if "{{ cookiecutter.license }}" == "None":
         remove_file_if_exists("LICENSE")
     

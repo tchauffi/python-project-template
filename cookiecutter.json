@@ -31,5 +31,9 @@
     "use_docker": [
         "y",
         "n"
+    ],
+    "include_notebooks": [
+        "y",
+        "n"
     ]
 }
