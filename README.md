@@ -43,6 +43,18 @@ Or use it locally:
 cookiecutter /path/to/python-project-template
 ```
 
+### Using as GitHub Template
+
+This repository is configured as a GitHub template. You can also:
+
+1. Click the **"Use this template"** button on GitHub
+2. Create a new repository from this template
+3. Clone your new repository
+4. Run cookiecutter to generate the project structure:
+   ```bash
+   cookiecutter .
+   ```
+
 ### Template Options
 
 When you run the template, you'll be prompted for the following options:
@@ -186,6 +198,35 @@ You can customize the template by:
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+### Testing the Template
+
+To test the template locally:
+
+```bash
+# Test with default values
+cookiecutter . --no-input
+
+# Test with custom values
+cookiecutter . --no-input --extra-context '{"project_name": "Test Project", "use_github_actions": "n"}'
+
+# Validate generated YAML files
+python -c "import yaml; yaml.safe_load(open('test-project/.github/workflows/ci.yml'))"
+```
+
+## GitHub Template Setup
+
+To use this as a GitHub template repository:
+
+1. **Enable Template Repository**:
+   - Go to **Settings** → **General**
+   - Check **"Template repository"**
+   - Save changes
+
+2. **Users can then**:
+   - Click **"Use this template"** on GitHub
+   - Create a new repository
+   - Clone and run: `cookiecutter .`
 
 ## License
 
