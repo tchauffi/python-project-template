@@ -1,0 +1,50 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "{{ cookiecutter.project_slug }}"
+version = "{{ cookiecutter.version }}"
+description = "{{ cookiecutter.project_description }}"
+authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]
+readme = "README.md"
+packages = [{include = "{{ cookiecutter.package_name }}"}]
+
+[tool.poetry.dependencies]
+python = "^{{ cookiecutter.min_python_version }}"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+ruff = "^0.1.0"
+{% if cookiecutter.use_pre_commit == "y" -%}
+pre-commit = "^3.5.0"
+{% endif -%}
+
+[tool.ruff]
+target-version = "py{{ cookiecutter.min_python_version.replace('.', '') }}"
+line-length = 88
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.ruff.isort]
+known-first-party = ["{{ cookiecutter.package_name }}"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+python_classes = "Test*"
